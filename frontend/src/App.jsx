@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import ProfilePage from './pages/ProfilePage';
 import { AuthRedirect, PrivateRoute } from './components/AuthRedirect';
 import ScrollToTop from './components/ScrollToTop';
+import NotFound from './pages/NotFound';
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
             <ProfilePage />
           </PrivateRoute>
         } />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </Router>
