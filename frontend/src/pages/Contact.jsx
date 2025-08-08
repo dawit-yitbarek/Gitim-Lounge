@@ -27,7 +27,12 @@ const Contact = () => {
 
         try {
             await publicApi.post('/api/user/send-message', { userData });
-            setSuccess("Message sent successfully! Thank You for your message.")
+            setSuccess("Thank you! Your message has been successfully sent.")
+            setUserData({
+                name: '',
+                email: '',
+                message: '',
+            })
         } catch (error) {
             console.error('Error:', error);
             setError(error.response?.data.message || 'Failed to send message. Please try again later.');
