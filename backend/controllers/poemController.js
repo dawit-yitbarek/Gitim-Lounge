@@ -66,7 +66,7 @@ export async function getFeaturedPoems(req, res) {
         users.profile_image
         FROM poems
      JOIN users ON poems.user_id = users.id
-     ORDER BY poems.created_at DESC LIMIT 3;
+     ORDER BY poems.likes_count DESC LIMIT 3;
 `);
         res.status(200).json({ featuredPoems: featuredPoems.rows });
     } catch (error) {
