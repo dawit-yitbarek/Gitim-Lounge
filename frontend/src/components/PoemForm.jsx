@@ -40,6 +40,7 @@ export default function PoemForm() {
 
             <form onSubmit={handlePostPoem} id="poemForm">
                 <input
+                    spellcheck="false"
                     required
                     type="text"
                     value={title}
@@ -48,6 +49,7 @@ export default function PoemForm() {
                     className="w-full p-2 rounded bg-[#ebe7e1] text-[#10214b] placeholder:text-gray-600 outline-none"
                 />
                 <textarea
+                    spellcheck="false"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder="Optional description..."
@@ -56,6 +58,7 @@ export default function PoemForm() {
 
                 {poemLines.map((line, i) => (
                     <textarea
+                        spellcheck="false"
                         key={i}
                         value={line}
                         onChange={(e) => {
