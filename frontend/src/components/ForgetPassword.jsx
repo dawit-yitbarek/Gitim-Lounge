@@ -49,7 +49,7 @@ export default function ForgetPassword() {
             });
             setMessage("Password has been successfully reset.");
             localStorage.setItem("accessToken", response.data.accessToken);
-            navigate("/")
+            window.location.href = "/"
         } catch (err) {
             setError(err.response?.data.message || "Failed to reset password. Please try again.");
         } finally {
