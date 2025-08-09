@@ -106,7 +106,7 @@ const PoemsPage = () => {
         <>
           <button
             onClick={() => setSidebarOpen(true)}
-            className="md:hidden absolute top-4 left-4 z-20 p-2 mb-2 rounded bg-[#0d1836] text-[#d7bd88]"
+            className="md:hidden absolute top-4 left-4 z-20 p-2 rounded bg-[#0d1836] text-[#d7bd88]"
           >
             <Menu className="w-6 h-6" />
           </button>
@@ -168,7 +168,7 @@ const PoemsPage = () => {
               {currentPoem && (
                 <>
                   {/* Poem Header */}
-                  <div className="text-center">
+                  <div className="text-center mt-4">
                     <h1 className="text-4xl font-serif text-[#d7bd88] mb-2">
                       {currentPoem.title}
                     </h1>
