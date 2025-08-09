@@ -82,6 +82,7 @@ export default function ForgetPassword() {
                         />
                     </div>
                     <button
+                        disabled={loading}
                         type="submit"
                         className="w-full bg-[#d7bd88] text-[#10214b] font-bold py-2 rounded hover:bg-[#c4ab70] transition"
                     >
@@ -123,6 +124,7 @@ export default function ForgetPassword() {
                     </div>
 
                     <button
+                        disabled={loading}
                         type="submit"
                         className="w-full bg-[#10214b] text-white font-bold py-2 rounded hover:bg-[#00103a] transition"
                     >
