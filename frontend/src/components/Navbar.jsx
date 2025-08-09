@@ -69,7 +69,6 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <div
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="flex gap-4 md:hidden text-3xl cursor-pointer"
         >
           {authorized && (
@@ -79,8 +78,11 @@ const Navbar = () => {
               </Link>
             </div>
           )}
-
+         <div
+           onClick={() => setIsMenuOpen(!isMenuOpen)}
+         >
           {isMenuOpen ? <X size={30} /> : <Menu size={30} />}
+         </div>
         </div>
 
       </div>
