@@ -116,6 +116,7 @@ export default function SignUp({ toggleForm, signUpSuccess, setUserName }) {
                         </div>
                         {error && <p className="text-center font-bold text-red-500">{error}</p>}
                         <button
+                            disabled={loading}
                             type="submit"
                             className="flex items-center justify-center w-full bg-[#d7bd88] text-[#10214b] font-bold py-2 rounded hover:bg-[#c4ab70] transition"
                         >
