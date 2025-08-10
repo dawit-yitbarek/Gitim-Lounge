@@ -83,7 +83,7 @@ const AllPoems = () => {
         </div>
 
         {/* Error / Loading */}
-        {error && <p className="text-red-400 text-center">Failed to load poems. Please try again later.</p>}
+        {error && <p className="text-red-400 text-center">Failed to load poems. reload the page.</p>}
 
         {/* Poems Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
