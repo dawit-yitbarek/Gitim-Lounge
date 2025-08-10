@@ -26,7 +26,7 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen bg-[#10214b] flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-[#10214b] flex items-center justify-center px-4 py-12 zoom">
       {!signUpSuccess && isSignIn && !forgetPassword && <SignIn toggleForm={toggleForm} forgetPassword={(value) => setForgetPassword(value)}/>}
       {!signUpSuccess && !isSignIn && !forgetPassword && <SignUp toggleForm={toggleForm} signUpSuccess={(value) => setSignUpSuccess(value)} setUserName={(value) => setUserName(value)} />}
       {signUpSuccess && !forgetPassword && <CompleteProfile userName={userName} />}

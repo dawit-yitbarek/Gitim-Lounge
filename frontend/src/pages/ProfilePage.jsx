@@ -36,7 +36,7 @@ const ProfilePage = () => {
 
 
     return (
-        <div className="min-h-screen p-6 profile" style={{ backgroundColor: "#10214b" }}>
+        <div className="min-h-screen p-6 zoom" style={{ backgroundColor: "#10214b" }}>
             <div className="max-w-4xl mx-auto space-y-10">
                 {/* Heading */}
                 <h1 className="text-4xl font-bold text-center" style={{ color: "#d7bd88" }}>
