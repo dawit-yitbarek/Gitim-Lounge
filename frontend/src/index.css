@@ -6,6 +6,9 @@ html, body {
   zoom: 1.12;
 }
 
+.profile {
+  zoom: 0.8;
+}
 
 input:-webkit-autofill,
 textarea:-webkit-autofill,
