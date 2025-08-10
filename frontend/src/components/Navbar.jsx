@@ -34,7 +34,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <h1 className="font-ethiopic font-extrabold text-xl md:text-2xl tracking-wide text-[#d7bd88]">
-          <Link to={"/"}> ግጥም  <span className="font-heading">Lounge</span> </Link>
+          <Link to={"/"} onClick={() => setIsMenuOpen(false)}> ግጥም  <span className="font-heading">Lounge</span> </Link>
         </h1>
 
         {/* Desktop Navigation */}
@@ -73,16 +73,16 @@ const Navbar = () => {
         >
           {authorized && (
             <div className="flex items-center gap-3">
-              <Link to={`/profile`} className="cursor-pointer transition">
+              <Link to={`/profile`} onClick={() => setIsMenuOpen(false)} className="cursor-pointer transition">
                 <img src={imageUrl} alt="Profile" className="w-8 h-8 rounded-full border-2 border-[#d7bd88]" />
               </Link>
             </div>
           )}
-         <div
-           onClick={() => setIsMenuOpen(!isMenuOpen)}
-         >
-          {isMenuOpen ? <X size={30} /> : <Menu size={30} />}
-         </div>
+          <div
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={30} /> : <Menu size={30} />}
+          </div>
         </div>
 
       </div>
