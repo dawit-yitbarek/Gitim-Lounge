@@ -2,13 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  zoom: 1.12;
+@media(min-width: 768px) {
+  html, body {
+    zoom: 1.12;
+  }
 }
 
-.zoom {
-  zoom: 0.8;
-}
 
 input:-webkit-autofill,
 textarea:-webkit-autofill,
