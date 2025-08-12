@@ -176,9 +176,9 @@ const PoemsPage = () => {
 
 
                   {/* Poem Body */}
-                  <div className="space-y-4 font-serif text-lg leading-loose text-center">
+                  <div className="space-y-2 font-serif text-lg leading-loose text-center">
                     {currentPoem.content?.map((line, i) => (
-                      <p key={i}>{line}</p>
+                      line ? <p key={i}>{line}</p> : <p key={i}>&nbsp;</p>
                     ))}
                   </div>
 
