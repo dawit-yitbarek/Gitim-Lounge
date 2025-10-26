@@ -14,6 +14,13 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT;
 
+app.use((req, res, next) => {
+  console.log("🔍 Request Origin:", req.headers.origin);
+  console.log("✅ Allowed Origin:", process.env.FRONTEND_URL);
+  next();
+});
+
+
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin || origin === process.env.FRONTEND_URL) {
