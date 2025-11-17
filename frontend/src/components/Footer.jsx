@@ -62,7 +62,7 @@ export default function Footer() {
                         rel="noopener noreferrer"
                         className="text-[#d7bd88] hover:underline"
                     >
-                        David
+                        Dawit
                     </a>
                 </p>
             </div>
