@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { publicApi } from "../components/Api";
-import { useNavigate } from "react-router-dom";
 import ShowPassword from "./ShowPassword";
-const BackEndUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function ForgetPassword() {
-    const navigate = useNavigate();
     const [step, setStep] = useState("email");
     const [email, setEmail] = useState("");
     const [code, setCode] = useState("");
@@ -22,7 +19,7 @@ export default function ForgetPassword() {
             setMessage("")
             setError("")
             setLoading(true);
-            await publicApi.post(`${BackEndUrl}/api/auth/send-reset-code`, { email });
+            await publicApi.post(`/api/auth/send-reset-code`, { email });
             setMessage("Verification code sent to your email. If you don't see it, check your spam folder. It's valid for 10 minutes.");
             setStep("verify");
         } catch (err) {
@@ -42,7 +39,7 @@ export default function ForgetPassword() {
             setMessage("")
             setError("");
             setLoading(true);
-            const response = await publicApi.put(`${BackEndUrl}/api/auth/reset-password`, {
+            const response = await publicApi.put(`/api/auth/reset-password`, {
                 email,
                 code,
                 newPassword,

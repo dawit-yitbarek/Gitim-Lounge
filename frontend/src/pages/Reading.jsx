@@ -4,8 +4,6 @@ import { protectedApi, publicApi } from "../components/Api";
 import { Menu, Heart, Share2 } from "lucide-react";
 import { ReadingPageSkeleton } from "../components/SkeletonPlaceholder";
 
-const BackEndUrl = import.meta.env.VITE_BACKEND_URL;
-
 const PoemsPage = () => {
   const navigate = useNavigate();
   const { authorId } = useParams();
@@ -23,8 +21,8 @@ const PoemsPage = () => {
     const fetchPoems = async () => {
       try {
         setLoading(true);
-        const response = await publicApi.get(`${BackEndUrl}/api/poems/reading/${authorId}`);
-        const authorData = await publicApi.get(`${BackEndUrl}/api/user/author/${authorId}`);
+        const response = await publicApi.get(`/api/poems/reading/${authorId}`);
+        const authorData = await publicApi.get(`/api/user/author/${authorId}`);
         const data = response.data;
         setAuthorInfo(authorData.data.user)
         setPoems(data);
@@ -49,7 +47,7 @@ const PoemsPage = () => {
     if (!currentPoemId) return;
     const checkLiked = async () => {
       try {
-        const response = await protectedApi.get(`${BackEndUrl}/api/like/${currentPoemId}/status`);
+        const response = await protectedApi.get(`/api/like/${currentPoemId}/status`);
         setAlreadyLiked(response.data.liked);
       } catch (error) {
         console.error("Failed to check like status:", error);
@@ -62,7 +60,7 @@ const PoemsPage = () => {
   // Handle Like
   const handleLike = async (poemId) => {
     try {
-      await protectedApi.post(`${BackEndUrl}/api/like/${poemId}`);
+      await protectedApi.post(`/api/like/${poemId}`);
       setPoems((prev) =>
         prev.map((poem) =>
           poem.id === poemId

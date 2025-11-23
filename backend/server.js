@@ -15,8 +15,13 @@ const app = express();
 const port = process.env.PORT;
 
 app.use((req, res, next) => {
-  console.log("🔍 Request Origin:", req.headers.origin);
-  console.log("✅ Allowed Origin:", process.env.FRONTEND_URL);
+  if (req.method === 'OPTIONS') {
+    res.header("Access-Control-Allow-Origin", process.env.FRONTEND_URL);
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    return res.sendStatus(204);
+  }
   next();
 });
 
@@ -44,7 +49,7 @@ app.use('/api/poems', poemRoutes);
 app.use('/api/like', likeRoutes);
 app.use('/api/feedback', feedBackRoutes);
 
-// Add a health check endpoint to confirm backend is running
+// a health check endpoint to confirm backend is running
 app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });

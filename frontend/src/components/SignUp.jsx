@@ -2,7 +2,6 @@ import { useState } from "react";
 import { publicApi } from "../components/Api";
 import { Loader2 } from "lucide-react";
 import ShowPassword from "./ShowPassword";
-const BackEndUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function SignUp({ toggleForm, signUpSuccess, setUserName }) {
     const [formData, setFormData] = useState({
@@ -37,7 +36,7 @@ export default function SignUp({ toggleForm, signUpSuccess, setUserName }) {
             setLoading(true);
             setMessage("")
             setError("");
-            await publicApi.post(`${BackEndUrl}/api/auth/register`, formData);
+            await publicApi.post(`/api/auth/register`, formData);
             setMessage(`A 6-digit code has been sent to your email ${formData.email}. If you don't see it, check your spam folder. It's valid for 10 minutes.`);
             setStep("verify");
         } catch (error) {
@@ -52,7 +51,7 @@ export default function SignUp({ toggleForm, signUpSuccess, setUserName }) {
         try {
             setVerifyLoading(true);
             setVerifyError("");
-            const response = await publicApi.post(`${BackEndUrl}/api/auth/verify-code`, { email: formData.email, code: enteredCode });
+            const response = await publicApi.post(`/api/auth/verify-code`, { email: formData.email, code: enteredCode });
             localStorage.setItem("accessToken", response.data.accessToken);
             signUpSuccess(true)
             setUserName(formData.name)

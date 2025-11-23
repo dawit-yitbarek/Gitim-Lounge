@@ -3,34 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { HeartIcon } from "lucide-react";
 import { publicApi } from './Api';
 import { PoemCard } from './SkeletonPlaceholder'
-const BackEndUrl = import.meta.env.VITE_BACKEND_URL;
-
-// const featuredPoems = [
-//     {
-//         id: 1,
-//         title: 'የአልፋ ጉርምት',
-//         author: 'Mehru',
-//         description: 'A deep reflection on love and loss expressed in rich Amharic rhythm.',
-//         authorImage: "/images/profile.jpg",
-//         likes: 24,
-//     },
-//     {
-//         id: 2,
-//         title: 'የትክክል እምነት',
-//         author: 'Sami Wond',
-//         description: 'A powerful piece on faith and purpose in a chaotic world.',
-//         authorImage: "/images/profile.jpg",
-//         likes: 42,
-//     },
-//     {
-//         id: 3,
-//         title: 'ሰውነትና ሐሳብ',
-//         author: 'Lulit T',
-//         description: 'Explores the tension between the physical and spiritual self with poetic grace.',
-//         authorImage: "/images/profile.jpg",
-//         likes: 19,
-//     },
-// ];
 
 const FeaturedPoems = () => {
     const [featuredPoems, setFeaturedPoems] = useState([]);
@@ -43,7 +15,7 @@ const FeaturedPoems = () => {
             try {
                 setLoading(true);
                 setError(false);
-                const response = await publicApi.get(`${BackEndUrl}/api/poems/featured`);
+                const response = await publicApi.get(`/api/poems/featured`);
                 setFeaturedPoems(response.data.featuredPoems);
             } catch (error) {
                 setError(true);

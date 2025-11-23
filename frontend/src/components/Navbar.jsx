@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { protectedApi } from "./Api";
-const BackEndUrl = import.meta.env.VITE_BACKEND_URL;
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ const Navbar = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await protectedApi.get(`${BackEndUrl}/api/user`);
+        const response = await protectedApi.get(`/api/user`);
         const user = response.data.user
         setUserId(user.id);
         setImageUrl(user.profile_image);
@@ -64,7 +63,6 @@ const Navbar = () => {
 
         </div>
 
-        {/* Desktop Sign In */}
 
 
         {/* Mobile Menu Toggle */}

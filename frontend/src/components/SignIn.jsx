@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { publicApi } from "./Api";
 import ShowPassword from "./ShowPassword";
-const BackEndUrl = import.meta.env.VITE_BACKEND_URL;
 
 export default function SignIn({ toggleForm, forgetPassword }) {
     const [formData, setFormData] = useState({
@@ -26,7 +25,7 @@ export default function SignIn({ toggleForm, forgetPassword }) {
         try {
             setLoading(true)
             setError("")
-            const response = await publicApi.post(`${BackEndUrl}/api/auth/login`, formData)
+            const response = await publicApi.post(`/api/auth/login`, formData)
             localStorage.setItem("accessToken", response.data.accessToken);
             window.location.href = "/"
         } catch (error) {

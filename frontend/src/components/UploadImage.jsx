@@ -1,8 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { publicApi } from './Api';
 
-const BackendUrl = import.meta.env.VITE_BACKEND_URL;
-
 export default function UploadImage({ setImageUrl, resetTrigger, status, showPreview, center, setLoading }) {
     const [preview, setPreview] = useState(null);
     const [uploadSuccess, setUploadSuccess] = useState(false);
@@ -27,7 +25,7 @@ export default function UploadImage({ setImageUrl, resetTrigger, status, showPre
             setUploadError(false);
             setUploading(true);
             setLoading(true);
-            const res = await publicApi.post(`${BackendUrl}/api/upload`, formData, {
+            const res = await publicApi.post(`/api/upload`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             setImageUrl(res.data.imageUrl);
