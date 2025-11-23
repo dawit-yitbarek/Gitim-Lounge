@@ -9,9 +9,12 @@ import poemRoutes from "./routes/poemRoutes.js";
 import likeRoutes from "./routes/likeRoutes.js";
 import feedBackRoutes from "./routes/feedBackRoutes.js";
 
-
 dotenv.config();
 const app = express();
+
+// Fix for express-rate-limit error:
+app.set("trust proxy", true);
+
 const port = process.env.PORT;
 
 app.use((req, res, next) => {
@@ -37,11 +40,11 @@ app.use(cors({
   credentials: true,
 }));
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+// Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/upload', uploadRoutes);
@@ -49,7 +52,7 @@ app.use('/api/poems', poemRoutes);
 app.use('/api/like', likeRoutes);
 app.use('/api/feedback', feedBackRoutes);
 
-// a health check endpoint to confirm backend is running
+// health check
 app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
