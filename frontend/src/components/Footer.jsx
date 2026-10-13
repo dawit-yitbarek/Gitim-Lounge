@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
 import { FaTelegramPlane, FaEnvelope, FaInstagram } from 'react-icons/fa';
 
 export default function Footer() {
+    const portfolioUrl = import.meta.env.VITE_PORTFOLIO_URL;
+
     return (
         <footer className="bg-[#0d1b2a] text-[#d0c3ba] px-6 sm:px-10 py-16">
             <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-10 text-center sm:text-left">
@@ -54,17 +55,17 @@ export default function Footer() {
             {/* Footer Bottom */}
             <div className="mt-12 border-t border-[#d0c3ba]/30 pt-6 text-center text-sm text-[#d0c3ba] space-y-1">
                 <p>© {new Date().getFullYear()} ግጥም Lounge. All rights reserved.</p>
-                <p>
+                {portfolioUrl && <p>
                     Developed by{" "}
                     <a
-                        href="https://www.daviddeveloper.site"
+                        href={portfolioUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-[#d7bd88] hover:underline"
                     >
                         Dawit
                     </a>
-                </p>
+                </p>}
             </div>
         </footer>
     );
